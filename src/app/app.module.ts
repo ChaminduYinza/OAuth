@@ -9,9 +9,12 @@ import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 import { GoogleApiModule, GoogleApiService, GoogleAuthService, NgGapiClientConfig, NG_GAPI_CONFIG, GoogleApiConfig } from "ng-gapi";
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
 
 let gapiClientConfig: NgGapiClientConfig = environment.gapiClientConfig
-gapiClientConfig.client_id.replace(/[@$]/g,'');
+gapiClientConfig.client_id = gapiClientConfig.client_id.replace(/@|#/g,'')
+console.log(gapiClientConfig.client_id)
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ gapiClientConfig.client_id.replace(/[@$]/g,'');
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

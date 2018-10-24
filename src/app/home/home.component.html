@@ -1,3 +1,74 @@
-<p>
-  home works!
-</p>
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+      <a class="navbar-brand" href="#">Navbar</a>
+    </mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect>Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a (click)="get()" class="nav-link waves-light" mdbWavesEffect>Get Drive</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="logout()" class="nav-link waves-light" mdbWavesEffect>Logout</a>
+        </li>
+      </ul>
+      <!-- Links -->
+  
+      <!-- Search form -->
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form mt-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        </div>
+      </form>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->
+  
+  
+  <mdb-card>
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4></h4>
+      </mdb-card-title>
+  
+      <button *ngIf='!isLoggedIn()' (click)="signIn()">sign in and create spreadsheet</button>
+  
+      <div *ngIf='isLoggedIn()'>
+        <p *ngIf='!sheet'>
+          <button (click)=create()>Create empty sheet</button>
+        </p>
+  
+        <p *ngIf='sheet'>
+          <span>sheetId {{sheet.spreadsheetId}}</span>
+        </p>
+  
+        <p>
+          <label>Spreadsheet id</label>
+          <input type="text" [(ngModel)]=sheetId />
+          <button (click)="findSheet()">fetch spreadsheet</button>
+        </p>
+  
+        <p *ngIf="foundSheet">
+          <code>
+          {{foundSheet | json}}
+          </code>
+        </p>
+  
+      </div>
+  
+    </mdb-card-body>
+  </mdb-card>

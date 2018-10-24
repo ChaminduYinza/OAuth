@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api_url: "http://localhost:3000/api/",
   gapiClientConfig: {
-    client_id: "7$24$58@@@@@$96$@@7$6$3$26-8$rub$m$u$se$2$$$6c$c$9$@@@e9h$$$$cu@@@5s4@@@n$$$$fae$$$$hp3@@@d57h.app@@s$$$.$$$$googl@@eu$$$$$$@@@@$s$$$$$$$erc@@@@onte@@@@nt.com",
+    client_id: "7@#24@#5@#@###@#89#6@@@##7###63@#@###@#@26-#8rubm###@@@u@#@#s###e26cc@#@#@9e9hcu5s4##@@@#@nf@@@a#ehp3d57h.a@#@#pps@#@.g@#@#oo@#@#@gl@#eu@@#@#@ser@#@#con@#@t#en#t#.#c##o###m",
     discoveryDocs: ["https://analyticsreporting.googleapis.com/$discovery/rest?version=v4"],
     scope: [
       "https://www.googleapis.com/auth/drive",
