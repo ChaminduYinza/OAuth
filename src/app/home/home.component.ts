@@ -9,9 +9,6 @@ import { driveService } from '../services/google-drive-service.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public sheetId: string;
-  public sheet: any;
-  public foundSheet: any;
 
   constructor(private userService: UserService,
     private gapiService: GoogleApiService,
@@ -31,13 +28,13 @@ export class HomeComponent implements OnInit {
     this.userService.signIn();
   }
 
-  public get() {
+   getDriveFiles() {
     this.driveService.getDriveFiles(this.userService.getToken())
       .subscribe((data) => {
-        console.log(data)
+        
       });
   }
-
+  
   logout() {
     this.userService.signOut()
   }
