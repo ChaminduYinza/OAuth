@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 let gapiClientConfig: NgGapiClientConfig = environment.gapiClientConfig
 gapiClientConfig.client_id = gapiClientConfig.client_id.replace(/@|#/g,'')
-console.log(gapiClientConfig.client_id)
 
 @NgModule({
   declarations: [
