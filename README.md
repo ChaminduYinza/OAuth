@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
 ## To Run
-CD into folder
-Open Command Prompt & enter following line
-npm install (Dependencies will be get installed)
-ng serve (Will run the application on port 4200)
+1. CD into folder
+2. Open Command Prompt & enter following line
+3. npm install (Dependencies will be get installed)
+4. ng serve (Will run the application on port 4200)
 
 ## Development server
 
