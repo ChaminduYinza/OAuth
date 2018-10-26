@@ -2,14 +2,16 @@ import { Injectable, NgZone } from "@angular/core";
 import * as _ from "lodash";
 import { GoogleAuthService } from "ng-gapi/lib/GoogleAuthService";
 import GoogleUser = gapi.auth2.GoogleUser;
+import { Observable } from 'rxjs/Observable';
+import { Subject } from "rxjs/Subject";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UserService {
     public static readonly SESSION_STORAGE_KEY: string = "accessToken";
     private user: GoogleUser = undefined;
-
+    private loginStatus = new Subject<any>();
     constructor(private googleAuthService: GoogleAuthService,
         private ngZone: NgZone) {
     }
@@ -32,7 +34,10 @@ export class UserService {
 
     public signIn() {
         this.googleAuthService.getAuth().subscribe((auth) => {
-            auth.signIn().then(res => this.signInSuccessHandler(res), err => this.signInErrorHandler(err));
+            auth.signIn().then(res => {
+                this.signInSuccessHandler(res)
+                this.loginListner(true)
+            }, err => this.signInErrorHandler(err));
         });
     }
 
@@ -63,4 +68,13 @@ export class UserService {
     private signInErrorHandler(err) {
         console.warn(err);
     }
+
+    public loginListner(value) {
+        this.loginStatus.next(value);
+    }
+
+    public getLoginStatus(): Observable<any> {
+        return this.loginStatus.asObservable();
+    }
+
 }
